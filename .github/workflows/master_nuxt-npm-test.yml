@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'nuxt-npm-test'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d2d05d4a54d54b978434f2e1bbe7af52 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1b565e13aafc413e9961abab2736fea9 }}
         package: .
