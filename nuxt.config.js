@@ -64,7 +64,7 @@ module.exports = {
     proxy: true
   },
   proxy: {
-    '/api/': { target: process.env.NODE_ENV !== "production" ? 'http://localhost:1337' : 'http://localhost:1337', pathRewrite: { '^/api/': '' } }
+    '/api/': { target: process.env.NODE_ENV !== "production" ? 'http://localhost:1337' : 'https://m-thomsen.tech', pathRewrite: { '^/api/': '' } }
   },
   /*
   ** Build configuration
