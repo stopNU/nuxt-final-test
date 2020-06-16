@@ -1,0 +1,34 @@
+$media-xsmall: 500px; /* max widths */
+$media-mobile: 767px; /* max widths */
+$media-tablet: 1024px; /* max widths */
+$media-tablet-xl: 1200px; /* max widths */
+$media-desktop: 1440px; /* max widths */
+$media-desktop-xl: 1680px;
+
+$outer-wrapper: 1920px;
+$inner-wrapper: 1440px;
+$content-wrapper: 1200px;
+
+$inner-wrapper-padding: 120px;
+$side-padding: 30px;
+$side-padding-mobile: 15px;
+$section-padding-mobile: 60px; /* top and bottom */
+
+$menu-height: 115px;
+$menu-height-mobile: 60px;
+
+$font-headlines: 'Cairo', sans-serif;
+$font-paragraphs: 'Roboto', sans-serif;
+$font-paragraphs-alt: 'Segoe UI', sans-serif;
+$font-primary-capital-letter: 0.75;
+
+$color-text: #000000;
+$color-text-hint: #282828;
+$color-brand: #366ECC;
+$color-brand-dark: #0C429B;
+$color-headlines: #010B1B;
+$color-white: #ffffff;
+$color-error: #FF5757;
+
+$bg-brand: #010B1B;
+$bg-neutral: #F6F6F6;

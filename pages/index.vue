@@ -1,72 +1,53 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        nuxt-final-test
-      </h1>
-      <h2 class="subtitle">
-        My classy Nuxt.js projects
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <LazyHomepageHeader :data="content.header" v-if="content.header" />
+      <div class="page-bg">
+      <LazyHomepageIntro :data="content.intro" v-if="content.intro" />
+      <LazyHomepageFeatures :data="content.features" v-if="content.features" />
+      <LazyHomepageSpecialProject :data="content.special_project" v-if="content.special_project" />
+      <LazyHomepageFeaturedArticles />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  async asyncData({ $axios, error }) {
+    try {
+      const content = await $axios.$get('/api/home-page')
+      return { content }
+    } catch(e) {
+      console.log("error", e);
+      error({ statusCode: 404, message: 'We are sorry but the page ran away...' })
+    }
+  },
+  data() {
+    return {
+      content: Object,
+    }
+  },
+  created(){
+    //this.fetchContent();
+    
+  },
+  mounted(){
+    //console.log('baseAPIUrl', process.env.baseAPIUrl) // world
+    
+  },
+  methods: {
+    async fetchContent() {
+      //const content = await this.$axios.$get('/api/home-page')
+      console.log("data", content)
+      //this.content = content
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style scoped lang="scss">
+.page-bg{
+    background-color: $color-white;
+  }
 </style>

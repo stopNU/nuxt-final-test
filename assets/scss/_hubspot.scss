@@ -1,0 +1,93 @@
+$input-height: 46px;
+
+.fullwidth #form {
+    .form-columns-2, .form-columns-1, .hs-input{
+        max-width: inherit;
+    }
+}
+
+#form{
+    font-family: $font-headlines;
+    .hs-button{
+        border-radius: 0px;
+        border: 0px;
+        box-shadow: none;
+    }
+    .input{ 
+        .hs-input:not([type='checkbox']){
+            box-shadow: none;
+            border-radius: 0px;
+            height: $input-height - 10;
+            padding: 4px 8px;
+            background: transparent;
+            font-family: $font-headlines;
+            @media screen and (max-width: $media-mobile) {
+                width: 100%;
+            }
+        }
+        select.hs-input:not([type='checkbox']){
+            height: $input-height;
+            width: 100%;
+            outline: 0;
+        }
+        textarea.hs-input{
+            /*height: $input-height;
+            width: 100%;
+            outline: 0;*/
+        }
+        .hs-input[type=checkbox]{
+            height: inherit;
+            position: relative;
+            margin-right: 15px;
+            margin-top: 2px;
+            @media screen and (max-width: $media-mobile) {
+                margin-right: 0px;
+            }
+        }
+        .hs-input[type=checkbox]:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: 0;
+            border: 2px solid #555555;
+            border-radius: 3px;
+            background-color: $bg-neutral;
+        }
+        .hs-input[type=checkbox]:checked:after {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 10px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 2px;
+            left: 6px;
+        }
+    }
+    .error{
+        border-color: $color-error;
+    }
+    .hs-error-msg{
+        color: $color-error;
+    }
+    .legal-consent-container{
+        p{
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: $color-text-hint;
+            font-family: $font-headlines;
+        }
+    }
+    @media screen and (max-width: $media-mobile) {
+        .form-columns-2 > div{
+            width: 100%;
+        }
+    }
+}
